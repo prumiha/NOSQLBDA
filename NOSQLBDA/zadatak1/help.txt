@@ -1,0 +1,1 @@
+db.statistika_gait.find()
