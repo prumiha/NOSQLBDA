@@ -1,1 +1,7 @@
-db.statistika_gait.find()
+# Switch to mongo database
+use mongo
+
+# List all mongo collection
+show collections
+# or
+db.getCollectionNames()

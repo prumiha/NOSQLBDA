@@ -51,7 +51,7 @@ async function calculateContinuousStatistics(db) {
   await statsCollection.deleteMany({});
   await statsCollection.insertOne(statistics);
 
-  console.log(`Continuous statistics inserted into collection: '${continuousStatsCollectionName}'`);
+  console.log(`Kontinuirane statistike umetnute u kolekciju: '${continuousStatsCollectionName}'`);
 }
 
 async function calculateCategoricalStatistics(db) {
@@ -84,7 +84,7 @@ async function calculateCategoricalStatistics(db) {
   await freqCollection.deleteMany({});
   await freqCollection.insertMany(frequencyDocuments);
 
-  console.log(`Categorical statistics inserted into collection: '${categoricalStatsCollectionName}'`);
+  console.log(`Kategorijske statistike umetnute u kolekciju: '${categoricalStatsCollectionName}'`);
 }
 
 async function calculateCategoricalStatisticsWithInc(db) {
@@ -109,7 +109,7 @@ async function calculateCategoricalStatisticsWithInc(db) {
     }
   }
 
-  console.log(`Categorical statistics calculated with $inc are inserted into collection: '${categoricalStatsCollectionName}'`);
+  console.log(`Kategorijske statistike izračunate s $inc umetnute su u kolekciju: '${categoricalStatsCollectionName}'`);
 }
 
 module.exports = {

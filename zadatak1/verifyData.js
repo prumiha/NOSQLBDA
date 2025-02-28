@@ -5,6 +5,9 @@ function verifyData(data) {
   let categoricalErrors = 0;
   let continuousErrors = 0;
 
+  // Kako se kontinuirana varijabla (angle) oznacava kut pod kojim se zglob nalazi, a kut 
+  // moze poprimiti i negativnu vrijednost, kontinuirane varijable se zamjenjuju sa -9999.
+  // Kategoricke varijable se zamjenjuju sa 'empty'.
   const verifiedData = data.map(record => {
     const verifiedRecord = {};
     for (const key in record) {
@@ -27,7 +30,7 @@ function verifyData(data) {
     return verifiedRecord;
   });
 
-console.log(`Data from gait.csv is verified and corrected. Categorical errors: ${categoricalErrors}, Continuous errors: ${continuousErrors}`);
+console.log(`Podaci iz gait.csv su provjereni i ispravljeni. Kategoricke greske: ${categoricalErrors}, Kontinuirane pogreske: ${continuousErrors}`);
 
   return verifiedData;
 }

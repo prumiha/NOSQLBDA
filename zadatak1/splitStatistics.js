@@ -6,7 +6,7 @@ async function splitStatistics(db) {
 
   const stats = await statsCollection.findOne({});
   if (!stats) {
-    console.log('No statistics found for splitting.');
+    console.log('U kolekciji "statistika_gait" nedostaje dokument iz kojeg je potrebno izvući prosječnu vrijednost.');
     return;
   }
 
@@ -17,17 +17,15 @@ async function splitStatistics(db) {
 
   const stats1CollectionName = 'statistika1_gait';
   const stats2CollectionName = 'statistika2_gait';
-
   const stats1Collection = db.collection(stats1CollectionName);
   const stats2Collection = db.collection(stats2CollectionName);
-
   await stats1Collection.deleteMany({});
   await stats2Collection.deleteMany({});
 
-  await stats1Collection.insertMany(lessThanOrEqualToMean.map(record => ({ _id: uuidv4(), ...record })));
-  await stats2Collection.insertMany(greaterThanMean.map(record => ({ _id: uuidv4(), ...record })));
+  await stats1Collection.insertMany(lessThanOrEqualToMean.map(record => ({ _id: uuidv4(), angle: record.angle })));
+  await stats2Collection.insertMany(greaterThanMean.map(record => ({ _id: uuidv4(), angle: record.angle })));
 
-  console.log(`Documents inserted into collections: '${stats1CollectionName}' and '${stats2CollectionName}'`);
+  console.log(`Dokumenti su umetnuti u kolekcije: '${stats1CollectionName}' i '${stats2CollectionName}'`);
 }
 
 module.exports = splitStatistics;

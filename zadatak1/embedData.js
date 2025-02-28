@@ -18,7 +18,7 @@ async function embedCategoricalData(db) {
 
   await embCollection.insertMany(embededDocuments);
 
-  console.log(`Documents with embedded categorical data inserted into collection: 'emb_gait'`);
+  console.log(`Dokumenti s umetnutim kategoriziranim podacima umetnuti u kolekciju: 'emb_gait'`);
 }
 
 async function embedContinuousData(db) {
@@ -36,7 +36,7 @@ async function embedContinuousData(db) {
   
     await embCollection.insertMany(embededDocuments);
   
-    console.log(`Documents with embedded continuous data inserted into collection: 'emb2_gait'`);
+    console.log(`Dokumenti s umetnutim kontinuiranim podacima umetnuti u kolekciju: 'emb2_gait'`);
   }
 
 module.exports = {

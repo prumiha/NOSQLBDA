@@ -10,9 +10,9 @@ async function populateMongo(db, data) {
       ...record
     }));
     await collection.insertMany(documents);
-    console.log('Data successfully inserted into MongoDB');
+    console.log('Podaci su uspješno uneseni u MongoDB');
   } catch (error) {
-    console.error('Error inserting data into MongoDB', error);
+    console.error('Greska pri unosu podataka u MongoDB', error);
   }
 }
 
